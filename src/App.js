@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import ActivityMain from './pages/admin/activity'
+import CategoryMain from './pages/admin/category'
+import Login from './pages/auth/Login'
+import AdminHeader from './components/layout/admin/AdminHeader'
+import { Container } from '@mui/material'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <>
+    <AdminHeader />
+    <Container style={{marginTop: 50}}>
+      <Routes>
+        <Route path="/admin/activity/*" element={<ActivityMain />} />
+        <Route path="/admin/category/*" element={<CategoryMain />} />
+        {/* <Route path="/login" element={<Login/>} /> */}
+      </Routes>
+    </Container>
+
+  </>
 }
 
-export default App;
+export default App
